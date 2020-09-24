@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
+
     """User profile linked to user via OneToOneField."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_number = models.IntegerField(blank=False, null=True)
@@ -39,6 +40,7 @@ class UserProfile(models.Model):
     )
 
     def __str__(self):
+        """Return Fullname."""
         full_name = '%s %s' % (self.user.first_name, self.user.last_name)
         return full_name
 

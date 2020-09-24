@@ -1,5 +1,4 @@
-"""
-WSGI config for health project.
+"""WSGI config for health project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

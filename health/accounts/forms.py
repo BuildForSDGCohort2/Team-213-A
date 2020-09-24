@@ -106,6 +106,7 @@ class LoginForm(forms.Form):
 
 class UserForm(forms.ModelForm):
     class Meta:
+        """Model Forms"""
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
 
@@ -125,6 +126,7 @@ class UserProfileForm(forms.ModelForm):
         exclude = ['user', 'avatar']
 
     def __init__(self, *args, **kwargs):
+        """Customize Model-Form fields."""
         super().__init__(*args, **kwargs)
         self.fields['date_of_birth'].help_text = 'YYYY-MM-DD'
 
