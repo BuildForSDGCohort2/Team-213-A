@@ -47,7 +47,7 @@ a {
 /* Header Section */
 header {
   padding: 150px 0 150px;
-  background-image: url('../../images/site/telehealth_appointment.jpg');
+  background-image: url('../images/telehealth_appointment.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
