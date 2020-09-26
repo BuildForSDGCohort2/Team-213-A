@@ -1,0 +1,30 @@
+
+{% block content %}
+
+		<section class="content">
+			<div class="page_header">
+				<h1>{{object.Title}}</h1>
+			</div>
+			<div class="center">
+				<div class=" single editor_text">
+			
+
+					<img src="{{object.Picture.url}}">
+					<div class="post_data">
+						<span class="author"><i class="fas fa-user"></i>by {{object.author}}</span>
+				
+					</div>
+
+					<p>{{object.Body}}</p>
+
+					
+
+				</div>
+			</div>
+
+		
+        </section>
+        {% endblock %}
+
+		
+
