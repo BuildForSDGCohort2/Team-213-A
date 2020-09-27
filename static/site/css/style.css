@@ -100,3 +100,24 @@ footer {
     text-shadow: -2px -2px #0c6985;
   }
 }
+
+/* Extra Small Devices */
+@media only screen and (max-width: 375px) {
+  .navbar-brand {
+    font-size: 18px;
+  }
+}
+
+/* Ultra Small Devices */
+@media only screen and (max-width: 320px) {
+
+  body,
+  html,
+  footer {
+    font-size: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 12px;
+  }
+}
