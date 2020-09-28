@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> {% endblock %}
+
+{% block content %}
+
+<section id="article">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="card">
+					<div class="card-body">
+						<h1 class="card-title"> {{object.title}} </h1>
+						<div class="row">
+							<div class="col">
+								<small> By {{object.author.userprofile}} </small>
+							</div>
+							<div class="col">
+								<small class="float-right"> Published on {{object.pub_date}} </small>
+							</div>
+						</div>
+						<hr>
+						<img src="{{object.image.url}}" class="card-img-top" alt="...">
+						<p class="card-text"> {{object.body}} </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
