@@ -1,0 +1,54 @@
+
+{% load static %}
+{% block content %}
+
+		<section class="content">
+			<div class="page_header">
+				<h1>Blog</h1>
+			</div>
+			<div class="center">
+				
+				<div class="blog">
+					
+					<article class="single_post">
+						{% for object in object_list %}
+						<a href="{% url 'detail' object.id %}"><img src="{{object.Picture.url}}" width="400" height="250"></a>
+						<a href="{% url 'detail' object.id %}"><h1>{{object.Title}}</h1></a>
+						<div class="post_data">
+							<span class="author"><i class="fas fa-user"></i>{{object.author}}</span>
+							<span class="author">{{object.pub_date}}</span>
+							
+						</div>
+						
+						<p>{{object.summary}}...<a href="{% url 'detail' object.id %}"  style="color:blue"</a>read more</p>
+						{% empty %} 
+						<li>Sorry,no Posts yet.</li> 
+
+						{% endfor %}
+					</article>
+			{% if is_paginated %}
+				<nav aria-label="Page navigation conatiner"></nav>
+				<ul class="pagination justify-content-center">
+					{% if page_obj.has_previous %}
+					<li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+					{% endif %}
+					{% if page_obj.has_next %}
+					<li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+					{% endif %}
+				</ul>
+				</nav>
+				</div>
+			{% endif %}
+				
+
+
+				</div>
+			
+
+			
+			</div>
+			</div>
+		</section>
+
+		{% endblock %}
