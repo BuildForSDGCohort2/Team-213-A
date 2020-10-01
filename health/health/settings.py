@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'channels',
 
+
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
 
 
 # Database
