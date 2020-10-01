@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'chat.apps.ChatConfig',
-    'history.apps.HistoryConfig'
+    'history.apps.HistoryConfig',
 
     # 3rd Party Apps
     'social_django',
