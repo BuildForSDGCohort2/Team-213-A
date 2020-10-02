@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'social_django',
     'widget_tweaks',
     'channels',
+    'tinymce'
 
 ]
 
@@ -175,3 +176,21 @@ LOGIN_REDIRECT_URL = 'accounts:profile'
 SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')
 
 SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
+
+TINYMCE_DEFAULT_CONFIG = {
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': 'link image preview codesample contextmenu table code lists textcolor wordcount paste',
+    'toolbar1': 'formatselect | bold italic underline forecolor backcolor | alignleft aligncenter alignright alignjustify '
+               '| bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'contextmenu': 'formats | link image',
+    'menubar': False,
+    'inline': False,
+    'statusbar': True,
+    'width': 'auto',
+    'height': 360,
+    'paste_as_text': True,
+    'image_class_list': [
+        {'title': 'Responsive', 'value': 'img-fluid rounded'},
+    ],
+}
