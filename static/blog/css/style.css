@@ -1,3 +1,4 @@
-section#article {
+section#article,
+section#article_list {
     padding-top: 100px;
 }

@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from . models import Article
+from .models import Article, Category
 
 
 class ArticleView(ListView):
