@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'channels',
     'rest_framework',
 
+
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
 
 
 # Database

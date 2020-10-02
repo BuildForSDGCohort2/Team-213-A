@@ -1,27 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
-</head>
-<body>
-    Welcome to Our chat app!<br/>
-    Kindly enter your Name in the field below...<br />
-    <input id="room-name-input" type="text" size="100"/><br/>
-    <input id="room-name-submit" type="button" value="Enter"/>
 
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Rooms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'chat/custom.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/#page-top">
+                <img src="{% static 'site/images/logos/health_no_bg.png' %}" width="50" height="50"
+                    class="d-inline-block" alt="">
+                Community Health
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#">Blog</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="mt-5 welcome">
+        <link rel="stylesheet" href="{% static 'chat/custom.css' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mt-5">
+                        Welcome to Our chat app!<br />
+                        Kindly enter your Name in the field below...<br />
+                        <input id="room-name-input" type="text" /><br />
+                        <input id="room-name-submit" type="button" value="Enter" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
+        document.querySelector('#room-name-input').onkeyup = function (e) {
             if (e.keyCode === 13) {  // enter, return
                 document.querySelector('#room-name-submit').click();
             }
         };
 
-        document.querySelector('#room-name-submit').onclick = function(e) {
+        document.querySelector('#room-name-submit').onclick = function (e) {
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
         };
     </script>
+
 </body>
+
 </html>
