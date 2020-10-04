@@ -3,7 +3,8 @@
 
 {% block title %} {{object.title}} - {{object.author.userprofile}} {% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> {% endblock %}
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> 
+{% endblock %}
 
 {% block content %}
 
@@ -24,6 +25,7 @@
 						</div>
 						<hr>
 						<p class="text-muted"> {{object.headline}} </p>
+						{{object.slug}}
 						<p class="card-text"> {{object.body|safe}} </p>
 						<hr>
 						<!-- Pending Query. Needs to be fixed! -->
