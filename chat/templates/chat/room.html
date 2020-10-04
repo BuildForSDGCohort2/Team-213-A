@@ -13,12 +13,18 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="{% static 'chat/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'chat/css/style.css' %}" />
   </head>
 
 <body>
   <div id="frame">
     <div id="sidepanel">
+      <a class="navbar-brand js-scroll-trigger" href="/#page-top">
+        <img src="{% static 'site/images/logos/health_no_bg.png' %}" width="50" height="50" class="d-inline-block"
+          alt="">
+        Community Health
+      </a>
+      
       <div id="profile">
         <div class="wrap">
          
@@ -46,8 +52,8 @@
     </div>
     <div class="content">
       <div class="contact-profile">
-     
-        <p>{{ username }}</p>
+        <p>{{ user.get_full_name }}</p>
+        
         <div class="social-media">
           <i class="fa fa-facebook" aria-hidden="true"></i>
           <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -78,8 +84,8 @@
     </div>
   </div>
 
-<script src="{% static 'chat/main.js' %}"></script>
-<script src="{% static 'chat/reconnecting-websocket.js' %}"></script>
+<script src="{% static 'chat/js/main.js' %}"></script>
+<script src="{% static 'chat/js/reconnecting-websocket.js' %}"></script>
 <script>
     var roomName = {{ room_name_json }};
     var username = {{ username }};
@@ -101,7 +107,6 @@
         } else if (data['command'] === 'new_message'){
           createMessage(data['message']);
         }
-
     };
 
     chatSocket.onclose = function(e) {

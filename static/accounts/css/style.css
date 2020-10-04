@@ -1,0 +1,17 @@
+section {
+    padding-top: 100px;
+}
+
+.dropdown,
+.dropdown-menu{
+    color: #eee !important;
+    background-color: #0c6985;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.dropdown-item:hover {
+    color: #0c6985;
+    border-radius: 20px;
+}
+

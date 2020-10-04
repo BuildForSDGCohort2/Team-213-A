@@ -1,0 +1,5 @@
+section#article,
+section#article_list,
+section#new_article {
+    padding-top: 100px;
+}
