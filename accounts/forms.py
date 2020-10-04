@@ -110,14 +110,14 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
 
-    def clean(self):
-        username = self.cleaned_data.get('username')
-        email = self.cleaned_data.get('email')
+    # def clean(self):
+    #     username = self.cleaned_data.get('username')
+    #     email = self.cleaned_data.get('email')
 
-        if email and User.objects.filter(email=email).exclude(username=username).count():
-            raise forms.ValidationError(
-                'This email address is already in use. Please supply a different email address.')
-        return self.cleaned_data
+    #     if email and User.objects.filter(email=email).exclude(username=username).count():
+    #         raise forms.ValidationError(
+    #             'This email address is already in use. Please supply a different email address.')
+    #     return self.cleaned_data
 
 
 class UserProfileForm(forms.ModelForm):
