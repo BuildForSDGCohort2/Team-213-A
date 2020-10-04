@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from tinymce import HTMLField
+from autoslug import AutoSlugField
 
 
 class Category(models.Model):
@@ -18,12 +19,13 @@ class Article(models.Model):
     title = models.CharField(max_length=100, blank=False)
     headline = models.CharField(max_length=255, blank=False)
     pub_date = models.DateTimeField(auto_now_add=True)
+    slug = AutoSlugField(populate_from='title', unique_with='pub_date__month')
     category = models.ManyToManyField(Category, default="General")
     body = HTMLField('Body Content')
-    is_published = models.BooleanField(default=False)
+    publish = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['-pub_date', 'author', 'is_published']
+        ordering = ['-pub_date', 'author', 'publish']
 
     def __str__(self):
         return self.title
