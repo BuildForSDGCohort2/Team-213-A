@@ -1,47 +1,54 @@
-/*
-Theme Colors
-
-Blue  #0c6985
-Red   #db2e06
-*/
-
-/* Cross-site */
+/* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
+/* Theme Colors */
+:root {
+  --main-blue: #0c6985;
+  --main-red: #db2e06;
+  --main-white: #eee;
+}
+
+/* Cross-site */
 html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.btn {
+  border-radius: 20px;
+}
+
 .btn-outline-primary,
 a {
-  color: #0c6985;
+  color: var(--main-blue);
 }
 
 .btn-outline-primary,
 .btn-primary {
-  border-color: #0c6985;
+  border-color: var(--main-blue);
 }
 
 .btn-outline-primary:hover,
 .btn-primary {
-  background-color: #0c6985;
+  background-color: var(--main-blue);
 }
 
 ::selection {
-  color: #0c6985;
-  background-color: #eee;
+  color: var(--main-white);
+  background-color: var(--main-blue);
 }
 
 /* Naviagtion Bar */
 .navbar-brand {
   font-weight: bolder;
   font-size: 22px;
-  color: #0c6985 !important;
+  color: var(--main-blue) !important;
 }
 
 .nav-item:hover {
-  text-decoration: overline;
+  color: var(--main-white) !important;
+  background-color: var(--main-blue);
+  border-radius: 20px;
 }
 
 /* Header Section */
@@ -54,10 +61,10 @@ header {
 }
 
 header div p {
-  color: #eee;
+  color: var(--main-white);
   font-size: x-large;
   font-weight: 500;
-  text-shadow: 1px 1px #0c6985;
+  text-shadow: 1px 1px var(--main-blue);
 }
 
 /* Sections */
@@ -69,19 +76,19 @@ section {
 .fa-home,
 .fa-calendar-plus {
   font-size: 50px;
-  color: #db2e06;
+  color: var(--main-red);
   padding: 10px;
 }
 
 /* About Section */
 section#about {
-  background-color: #0c6985;
+  background-color: var(--main-blue);
 }
 
 /* Footer */
 footer {
   font-size: x-small;
-  background-color: #0c6985;
+  background-color: var(--main-blue);
   bottom: 0;
   width: 100%;
 }
@@ -97,6 +104,6 @@ footer {
   header div p {
     font-size: xx-large;
     font-weight: 800;
-    text-shadow: -2px -2px #0c6985;
+    text-shadow: -2px -2px var(--main-blue);
   }
 }
