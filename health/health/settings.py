@@ -44,12 +44,14 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'chat.apps.ChatConfig',
     'history.apps.HistoryConfig',
+    'events.apps.EventsConfig',
 
     # 3rd Party Apps
     'social_django',
     'widget_tweaks',
     'channels',
     'rest_framework',
+    'crispy_forms',
 
 
 ]
@@ -164,7 +166,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [

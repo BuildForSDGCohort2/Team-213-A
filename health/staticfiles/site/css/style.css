@@ -1,0 +1,102 @@
+/*
+Theme Colors
+
+Blue  #0c6985
+Red   #db2e06
+*/
+
+/* Cross-site */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-outline-primary,
+a {
+  color: #0c6985;
+}
+
+.btn-outline-primary,
+.btn-primary {
+  border-color: #0c6985;
+}
+
+.btn-outline-primary:hover,
+.btn-primary {
+  background-color: #0c6985;
+}
+
+::selection {
+  color: #0c6985;
+  background-color: #eee;
+}
+
+/* Naviagtion Bar */
+.navbar-brand {
+  font-weight: bolder;
+  font-size: 22px;
+  color: #0c6985 !important;
+}
+
+.nav-item:hover {
+  text-decoration: overline;
+}
+
+/* Header Section */
+header {
+  padding: 150px 0 150px;
+  background-image: url('../images/telehealth_appointment.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header div p {
+  color: #eee;
+  font-size: x-large;
+  font-weight: 500;
+  text-shadow: 1px 1px #0c6985;
+}
+
+/* Sections */
+section {
+  padding: 50px 0;
+}
+
+/* Our Services Section */
+.fa-home,
+.fa-calendar-plus {
+  font-size: 50px;
+  color: #db2e06;
+  padding: 10px;
+}
+
+/* About Section */
+section#about {
+  background-color: #0c6985;
+}
+
+/* Footer */
+footer {
+  font-size: x-small;
+  background-color: #0c6985;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive for Desktop */
+@media only screen and (min-width: 768px) {
+
+  /* Header Section */
+  header {
+    padding: 30px 0 150px;
+  }
+
+  header div p {
+    font-size: xx-large;
+    font-weight: 800;
+    text-shadow: -2px -2px #0c6985;
+  }
+}

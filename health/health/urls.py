@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/', include('history.api.urls')),
     path('chat/', include('chat.urls')),
     path('blog/', include('blog.urls')),
+    path('', include(('events.urls', 'events'), namespace='calendar')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
