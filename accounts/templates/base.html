@@ -16,7 +16,8 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'site/css/style.css' %}">
- {% block css %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  {% block css %}{% endblock %}
   <!-- Fontawesome Kit -->
   <script src="https://kit.fontawesome.com/b1eb41e9a4.js" crossorigin="anonymous"></script>
   <!-- Favicons -->
@@ -57,17 +58,32 @@
             <a class="nav-link js-scroll-trigger" href="/events">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/blog">Blog</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'blog:index' %}">Blog</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link far fa-user" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+              {{user.first_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href=" {% url 'accounts:profile' %} ">Profile</a>
+              <a class="dropdown-item" href=" {% url 'admin:password_change' %} ">Change Password</a>
+              <a class="dropdown-item" href=" {% url 'accounts:logout' %} ">Logout</a>
+            </div>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+            
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
-          </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href=" {% url 'accounts:login' %} ">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href=" {% url 'accounts:register' %} ">Register</a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>

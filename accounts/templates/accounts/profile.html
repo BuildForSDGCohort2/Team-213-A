@@ -2,13 +2,13 @@
 {% load widget_tweaks %}
 {% load static %}
 
-{% block css %} <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}"> {% endblock %}
 {% block title %} Profile - {{user.userprofile}} {% endblock title %}
 
 {% block content %}
 
 <section>
     <div class="col-lg-8 mx-auto">
+        <h3>Profile</h3>
         <div class="card mt-4">
             <div class="card-body">
                 <div class="row">
@@ -32,7 +32,15 @@
                     <div class="col-sm-6">
                         <div>
                             <b>Phone Number</b>
-                            <p>{{user.username}}</p>
+                            <p>{{user}}</p>
+                        </div>
+                        <div>
+                            <b>Date Joined</b>
+                            <p>{{user.date_joined|date:"M. d, Y"}}</p>
+                        </div>
+                        <div>
+                            <b>User ID</b>
+                            <p>{{user.id}}</p>
                         </div>
                         <div>
                             <b>ID Number</b>
@@ -60,8 +68,34 @@
                 </div>
             </div>
         </div>
-        <a href="{% url 'accounts:edit_profile' %}" >
+        <a href="{% url 'accounts:edit_profile' %}">
             <button class="btn btn-sm btn-outline-primary mb-4 mt-4">Edit Profile</button>
+        </a>
+        <h3>User Information</h3>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <b>User ID</b>
+                            <p>{{user.id}}</p>
+                        </div>
+                        <div>
+                            <b>User Permissions</b>
+                            <p>{{user.}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div>
+                            <b>Last Login</b>
+                            <p>{{user.last_login}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href=" {% url 'admin:password_change' %} ">
+            <button class="btn btn-sm btn-outline-primary mb-4 mt-4">Change Password</button>
         </a>
     </div>
 </section>
