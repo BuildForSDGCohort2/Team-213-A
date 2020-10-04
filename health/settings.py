@@ -40,17 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+  
     # Project Apps
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'chat.apps.ChatConfig',
+    'history.apps.HistoryConfig',
 
     # 3rd Party Apps
     'social_django',
     'widget_tweaks',
     'channels',
-    'tinymce'
-
+    'tinymce',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +139,14 @@ AUTHENTICATION_BACKENDS = (
     # Social Authentication
     'social_core.backends.facebook.FacebookOAuth2',
 )
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

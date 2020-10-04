@@ -109,7 +109,7 @@ class UserForm(forms.ModelForm):
         """Model Forms"""
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
-
+        
     # def clean(self):
     #     username = self.cleaned_data.get('username')
     #     email = self.cleaned_data.get('email')
