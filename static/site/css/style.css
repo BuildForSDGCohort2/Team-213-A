@@ -18,6 +18,10 @@ body {
   border-radius: 20px;
 }
 
+button {
+  outline: none !important;
+}
+
 .btn-outline-primary,
 a {
   color: var(--main-blue);
