@@ -193,4 +193,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'image_class_list': [
         {'title': 'Responsive', 'value': 'img-fluid rounded'},
     ],
+    'table_class_list': [
+        {'title': 'Boostrap Styled', 'value': 'table table-bordered table-hover'}
+    ],
 }
