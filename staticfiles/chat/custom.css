@@ -1,0 +1,10 @@
+@media(max-width:540px){
+    .navbar-light .navbar-brand{font-size: 14px;}
+  }
+  .welcome{
+    background-image: url("images/doctor_on_computer.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+  }

@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('chat/', include('chat.urls')),
     path('blog/', include('blog.urls')),
+    path('', include(('events.urls', 'events'), namespace='calendar')),
     path('api/', include('history.api.urls')),
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
