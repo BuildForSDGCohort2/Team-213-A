@@ -11,11 +11,13 @@
 	<div class="container">
 		<h3>Health Blog Posts</h3>
 		<ol class="list-group">
+		{% if user.is_authenticated %}
 			<li class="list-group-item">
 				<a href="/admin/blog/article/add/"> 
 					<button class="btn btn-primary">New Article</button>
 				</a>
 			</li>
+		{% endif %}
 			{% for object in object_list %}
 			<li class="list-group-item">
 				<a href="{% url 'blog:article' object.id %}"> {{object.title}} </a>
