@@ -8,7 +8,7 @@
 
 <section>
     <div class="col-lg-6 mx-auto">
-        <h3 class="text-center">Profile</h3>
+        <h3 class="text-center">Edit Profile</h3>
         <form class="form-group" action="{% url 'accounts:edit_profile' %}" method="POST" novalidate>
             {% csrf_token %}
             {% for hidden_field in user_form.hidden_fields %}
@@ -119,7 +119,7 @@
                 {% endif %}
             </div>
             {% endfor %}
-            <button type="submit" class="btn btn-sm btn-outline-primary mb-4">Update</button>
+            <button type="submit" class="btn btn-sm btn-outline-primary mb-4 float-right">Update</button>
         </form>
     </div>    
 </section>
