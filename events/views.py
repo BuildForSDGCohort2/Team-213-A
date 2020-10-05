@@ -8,6 +8,8 @@ from django.views.generic import ListView, DetailView, View
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.utils.dates import MONTHS_ALT
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # thirdparties:
 import six
@@ -232,7 +234,8 @@ class EventDetailView(DetailView):
             pk=self.kwargs['pk']
         )
 
-
+@method_decorator(login_required, name='get')
+@method_decorator(login_required, name='post')
 class CreateEvent(View):
     template_name = 'create.html'
 
