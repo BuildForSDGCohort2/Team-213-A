@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Community Health - Home{% endblock title %}
+
+{% block content %}
+
+<!-- Header Section -->
+<header class=text-white">
+    <div class="text-center">
+        <img src="{% static 'site/images/logos/health_bg.png' %}" class="img-fluid" alt="Responsive image">
+        <p class="container"> “Access to good healthcare should not depend on who you are, what you do or where you
+            live”
+        </p>
+    </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="bg-light">
+    <div class="container">
+        <div class="mx-auto text-center">
+            <h2>Our Services</h2>
+            <p>Consult a Community Health Medical Practitioner or make an appointment with your nearest Community Health
+                Facility.</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <h5> <b>Consult from Home</b> </h5>
+                <i class="fas fa-home"></i>
+                <p>
+                    Teleconsult our medical officers at home. Choose the first available community health officer or
+                    choose a
+                    specific one to talk to online.
+                </p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <h5> <b>Make an Appointment</b> </h5>
+                <i class="fas fa-calendar-plus"></i>
+                <p>
+                    Schedule an in-person appointment with your nearest community health facility from home so you don't
+                    have to
+                    wait in line.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container text-white">
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>
+                    <p>About Us</p>
+                </h5>
+                <p>
+                    This application is built to allow community health workers and public health officers to carry out
+                    their
+                    roles more effectively. It ensures a better communitcation channel between registered community
+                    health
+                    institutions and members of the community.
+                </p>
+                <p>
+                    The platform also serves to inform its user through the blog/news feature which focuses on
+                    healthcare and
+                    healthy living.
+                </p>
+            </div>
+            <div class="col-sm-3">
+                <h5>
+                    <p>Vision</p>
+                </h5>
+                <p>To create community-centric, self-sustaining digital healthcare services.</p>
+            </div>
+            <div class="col-sm-3">
+                <h5>
+                    <p>Mission</p>
+                </h5>
+                <p>To create a community model for improving access and delivery of healthcare services according to
+                    society
+                    needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
