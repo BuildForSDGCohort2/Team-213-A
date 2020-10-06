@@ -40,12 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+  
     # Project Apps
     'accounts.apps.AccountsConfig',
+    'blog.apps.BlogConfig',
+    'chat.apps.ChatConfig',
+    'history.apps.HistoryConfig',
+    'events.apps.EventsConfig',
 
     # 3rd Party Apps
     'social_django',
     'widget_tweaks',
+    'channels',
+    'tinymce',
+    'rest_framework',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +97,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'health.wsgi.application'
 
+ASGI_APPLICATION = 'health.routing.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379') , ('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -123,6 +144,14 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
 )
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -139,6 +168,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATIC_URL = '/static/'
 
@@ -161,6 +192,27 @@ LOGIN_REDIRECT_URL = 'accounts:profile'
 SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')
 
 SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
+
+TINYMCE_DEFAULT_CONFIG = {
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': 'link image preview codesample contextmenu table code lists textcolor wordcount paste',
+    'toolbar1': 'formatselect | bold italic underline forecolor backcolor | alignleft aligncenter alignright alignjustify '
+               '| bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'contextmenu': 'formats | link image',
+    'menubar': False,
+    'inline': False,
+    'statusbar': True,
+    'width': 'auto',
+    'height': 360,
+    'paste_as_text': True,
+    'image_class_list': [
+        {'title': 'Responsive', 'value': 'img-fluid rounded'},
+    ],
+    'table_class_list': [
+        {'title': 'Boostrap Styled', 'value': 'table table-bordered table-hover'}
+    ],
+}
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

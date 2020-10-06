@@ -6,61 +6,98 @@
 
 {% block content %}
 
-<div class="col-lg-8 mx-auto" style="padding-top: 80px;">
-    <div class="card mt-4">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6">
-                    {% if user.userprofile.avatar %}
-                    <img src="{{user.userprofile.avatar.url}}" class="rounded-circle"
-                        alt="Profile photo of {{user.userprofile}}" width="80" height="80"
-                        style="border: 1px solid #0c6985;">
-                    {% else %}
-                    <img src="{% static 'accounts/images/default_avatar.svg' %}" class="rounded-circle"
-                        alt="default avatar" width="80" height="80" style="border: 1px solid #0c6985;">
-                    {% endif %}
-                </div>
-                <div class="col-sm-6  pt-3">
-                    <h5 class="card-title"> {{user.userprofile}} </h5>
-                    <p>{{user.email}}</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div>
-                        <b>Phone Number</b>
-                        <p>{{user.username}}</p>
+<section>
+    <div class="col-lg-8 mx-auto">
+        <h3>Profile</h3>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {% if user.userprofile.avatar %}
+                        <img src="{{user.userprofile.avatar.url}}" class="rounded-circle"
+                            alt="Profile photo of {{user.userprofile}}" width="80" height="80"
+                            style="border: 1px solid #0c6985;">
+                        {% else %}
+                        <img src="{% static 'accounts/images/default_avatar.svg' %}" class="rounded-circle"
+                            alt="default avatar" width="80" height="80" style="border: 1px solid #0c6985;">
+                        {% endif %}
                     </div>
-                    <div>
-                        <b>ID Number</b>
-                        <p>{{user.userprofile.id_number}}</p>
+                    <div class="col-sm-6  pt-3">
+                        <h5 class="card-title"> {{user.userprofile}} </h5>
+                        <p>{{user.email}}</p>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div>
-                        <b>Date of Birth</b>
-                        <p>{{user.userprofile.date_of_birth}}</p>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <b>Phone Number</b>
+                            <p>{{user}}</p>
+                        </div>
+                        <div>
+                            <b>Date Joined</b>
+                            <p>{{user.date_joined|date:"M. d, Y"}}</p>
+                        </div>
+                        <div>
+                            <b>User ID</b>
+                            <p>{{user.id}}</p>
+                        </div>
+                        <div>
+                            <b>ID Number</b>
+                            <p>{{user.userprofile.id_number}}</p>
+                        </div>
                     </div>
-                    <div>
-                        <b>Gender</b>
-                        <p>{{user.userprofile.gender}}</p>
-                    </div>
-                    <div>
-                        <b>Marital Status</b>
-                        <p>{{user.userprofile.marital_status}}</p>
-                    </div>
-                    <div>
-                        <b>Religion</b>
-                        <p>{{user.userprofile.religion}}</p>
+                    <div class="col-sm-6">
+                        <div>
+                            <b>Date of Birth</b>
+                            <p>{{user.userprofile.date_of_birth}}</p>
+                        </div>
+                        <div>
+                            <b>Gender</b>
+                            <p>{{user.userprofile.gender}}</p>
+                        </div>
+                        <div>
+                            <b>Marital Status</b>
+                            <p>{{user.userprofile.marital_status}}</p>
+                        </div>
+                        <div>
+                            <b>Religion</b>
+                            <p>{{user.userprofile.religion}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="{% url 'accounts:edit_profile' %}">
+            <button class="btn btn-sm btn-outline-primary mb-4 mt-4">Edit Profile</button>
+        </a>
+        <h3>User Information</h3>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <b>User ID</b>
+                            <p>{{user.id}}</p>
+                        </div>
+                        <div>
+                            <b>User Permissions</b>
+                            <p>{{user.}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div>
+                            <b>Last Login</b>
+                            <p>{{user.last_login}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href=" {% url 'admin:password_change' %} ">
+            <button class="btn btn-sm btn-outline-primary mb-4 mt-4">Change Password</button>
+        </a>
     </div>
-    <a href="{% url 'accounts:edit_profile' %}" >
-        <button class="btn btn-sm btn-outline-primary mb-4 mt-4">Edit Profile</button>
-    </a>
-</div>
+</section>
 
 {% endblock content %}
